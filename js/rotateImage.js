@@ -15,4 +15,13 @@ function rotateImage(matrix) {
 	return matrix;
 }
 
-console.log(rotateImage([[1, 2], [3, 4]]));
+//console.log(rotateImage([[1, 2], [3, 4]]));
+console.log(
+	rotateImage([
+		[1, 1, 5, 9, 9],
+		[2, 2, 6, 0, 0],
+		[3, 3, 7, 1, 1],
+		[4, 4, 8, 2, 2],
+		[5, 5, 9, 3, 3]
+	])
+);
