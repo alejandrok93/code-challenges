@@ -20,4 +20,10 @@ class BinaryTreeNode {
 
 function balanceBinaryTree(node) {
 	// do something
+	console.log(node);
 }
+
+let tree = new BinaryTreeNode(10);
+tree.insertLeft(7);
+tree.insertRight(14);
+console.log(tree);
