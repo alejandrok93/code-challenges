@@ -4,7 +4,7 @@ class SetOfStacks {
 		this.numberOfStacks = 0;
 		this.capacity = capacity;
 		this.currentStack = 0;
-		this.stacks = { 0: [] };
+		this.stacks = [[]];
 	}
 
 	push(item) {
@@ -15,7 +15,7 @@ class SetOfStacks {
 			this.stacks[this.currentStack] = [];
 
 			//add item to latest stack
-			this.stacks[this.currentStack].push(item);
+			this.stacks[this.currentStack].append(item);
 			this.length++;
 		} else {
 			this.stacks[this.currentStack].push(item);
@@ -36,6 +36,7 @@ class SetOfStacks {
 	popAt(index) {
 		for (stack in this.stacks) {
 		}
+		return this.stacks[index];
 	}
 }
 
