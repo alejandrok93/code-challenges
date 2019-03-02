@@ -31,11 +31,11 @@ class App extends Component {
 	addTask = e => {
 		e.preventDefault();
 
-		// const newTask = {
-		// 	id: this.state.tasks.length++,
-		// 	title: this.state.input,
-		// 	completed: false
-		// };
+		const newTask = {
+			id: this.state.tasks.length++,
+			title: this.state.input,
+			completed: false
+		};
 
 		//console.log('lets add this task! ' + newTask.title);
 		this.setState({
