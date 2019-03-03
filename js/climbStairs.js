@@ -26,4 +26,4 @@ function climbStairs(n, cache = {}) {
 	return cache[n];
 }
 
-console.log(climbStairs(3)); // should print 4
+console.log(climbStairs(10)); // should print 4
