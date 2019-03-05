@@ -9,20 +9,21 @@ class BinaryTreeNode {
 
 function bstFromAray(arr) {
 	//get root node in the middle of array
-	let rootItem = Math.floor(arr.length / 2);
-	root = BinaryTreeNode(arr[rootItem]);
-	let left = arr.slice(0, rootItem - 1);
-	let right = arr.slice(rootItem + 1, arr.length);
-	//loop to the left and position elements to its left side
-	for (let i = left.length - 1; i >= 0; i--) {
-		if (arr[i] > root.value) {
-			root.right = arr[i];
-		} else if (arr[i] < root.value) {
-			root.left = arr[i];
-		}
+
+	if (arr.length === 0) {
+		return null;
 	}
+	let mid = Math.floor(arr.length / 2);
+	rootNode = new BinaryTreeNode(arr[mid]);
+
+	rootNode.left = bstFromAray(arr.slice(0, mid - 1));
+	rootNode.right = bstFromAray(arr.slice(mid + 1));
+	//loop to the left and position elements to its left side
+
+	return rootNode;
 	//loop to the right and position elements to its right side
 }
 
 let arr = [1, 2, 3, 4, 5, 6, 7];
-console.log(bstFromArray(arr));
+
+console.log(bstFromAray(arr));
