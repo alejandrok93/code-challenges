@@ -1,4 +1,8 @@
 // write a function that checks to see if a given binary tree is perfectly balanced, meaning all leaf nodes are located at the same depth. Your function should return true if the tree is perfectly balanced and false otherwise.
+function balancedBinaryTree(node) {
+	// do something
+	console.log(node);
+}
 
 class BinaryTreeNode {
 	constructor(value) {
@@ -16,11 +20,6 @@ class BinaryTreeNode {
 		this.right = new BinaryTreeNode(value);
 		return this.right;
 	}
-}
-
-function balanceBinaryTree(node) {
-	// do something
-	console.log(node);
 }
 
 let tree = new BinaryTreeNode(10);
