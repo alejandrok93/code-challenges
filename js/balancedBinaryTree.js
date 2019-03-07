@@ -2,6 +2,35 @@
 function balancedBinaryTree(node) {
 	// do something
 	console.log(node);
+
+	// //Depth First Traversal
+	// let visited = new Set();
+	// let stack = [];
+	// let traversal = [];
+
+	// stack.push([tree]);
+	// let i = 0;
+
+	// while(stack.length > 0 || i < 5) {
+	//   let tmp = stack.pop();
+	//   let node = tmp[tmp.length-1];
+	//   console.log(tmp)
+	//   console.log(node);
+	//   traversal.push(node.value);
+
+	//   if (!visited.has(node.value)) {
+	//   for (child in node) {
+
+	//     if (child) {
+	//     let tmp_path = tmp.slice();
+	//     tmp_path.push(child.value);
+	//     stack.push(tmp_path);
+	//     visited.add(child.value);
+	//     }
+	//   }
+	//   }
+	// i++;
+	// }
 }
 
 class BinaryTreeNode {
