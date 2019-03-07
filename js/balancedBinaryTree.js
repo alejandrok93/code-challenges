@@ -1,7 +1,22 @@
 // write a function that checks to see if a given binary tree is perfectly balanced, meaning all leaf nodes are located at the same depth. Your function should return true if the tree is perfectly balanced and false otherwise.
 function balancedBinaryTree(node) {
-	// do something
-	console.log(node);
+	let leftLevels = 0;
+	let rightLevels = 0;
+	let current_node = tree;
+	while (current_node.left) {
+		current_node = tree.left;
+		leftLevels++;
+	}
+
+	let current_right_node = tree;
+	while (current_right_node.right) {
+		current_right_node = tree.right;
+		rightLevels++;
+	}
+	// console.log("left levels: " + leftLevels);
+	// console.log("right levels: " + rightLevels);
+
+	return Math.abs(leftLevels - rightLevels) === 0;
 
 	// //Depth First Traversal
 	// let visited = new Set();
