@@ -3,25 +3,52 @@ function findMaxProfit(prices) {
 	//write code
 	let maxProfit = 0;
 	let currentProfit = 0;
+	let lowestPrice = 10000;
 
 	//loop through prices
 	for (let i = 1; i < prices.length; i++) {
-		let prevPrice = prices[i - 1];
 		let price = prices[i];
 
-		currentProfit = price - prevPrice;
+		if (price < lowestPrice) {
+			lowestPrice = price;
+		}
+
+		currentProfit = price - lowestPrice;
 
 		if (currentProfit > maxProfit) {
 			maxProfit = currentProfit;
 		}
 	}
 
-	//subtract previous price from current price to get current profit
+	//subtract previous lowest price from current price to get current profit
 
 	// compare current profit with max profit
 
 	// if greater, update maxprofit
+
+	return maxProfit;
 }
 
 const bitcoinPrices = [1050, 270, 1540, 3800, 2];
-findMaxProfit(bitcoinPrices); // should return 3530, which is the max profit you can make from these prices by buying at 270 and selling at 3800
+console.log(findMaxProfit(bitcoinPrices)); // should return 3530, which is the max profit you can make from these prices by buying at 270 and selling at 3800
+
+console.log(
+	findMaxProfit([
+		100,
+		55,
+		4,
+		98,
+		10,
+		18,
+		90,
+		95,
+		43,
+		11,
+		47,
+		67,
+		89,
+		42,
+		49,
+		79
+	])
+);
