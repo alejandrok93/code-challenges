@@ -2,8 +2,19 @@
 function findMaxProfit(prices) {
 	//write code
 	let maxProfit = 0;
+	let currentProfit = 0;
 
 	//loop through prices
+	for (let i = 1; i < prices.length; i++) {
+		let prevPrice = prices[i - 1];
+		let price = prices[i];
+
+		currentProfit = price - prevPrice;
+
+		if (currentProfit > maxProfit) {
+			maxProfit = currentProfit;
+		}
+	}
 
 	//subtract previous price from current price to get current profit
 
