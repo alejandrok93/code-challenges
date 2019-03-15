@@ -10,6 +10,7 @@ function findMaxProfit(prices) {
 		let price = prices[i];
 
 		if (price < lowestPrice) {
+			//save lowest price with current price
 			lowestPrice = price;
 		}
 

@@ -5,7 +5,7 @@
 function findRotationPoint(words) {
 	//write code
 	words.forEach(word => {
-		//think this throug
+		//think this through
 	});
 }
 
