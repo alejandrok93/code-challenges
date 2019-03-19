@@ -14,25 +14,58 @@
 			}
 			.clock-hand {
 				width: 15px;
-				height: 250px;
+				height: 200px;
+				position: absolute;
+				top: 25px;
 				left: 200px;
 				border: 1px solid black;
+				transform: rotate(0deg);
+			}
+
+			.seconds-hand {
+				width: 7px;
 			}
 		</style>
 	</head>
 	<body>
 		<!--Add your layout here-->
 		<div class="clock-container">
-			<div class="clock-hand hour"></div>
-			<div class="clock-hand minute"></div>
-			<div class="clock-hand second"></div>
+			<!-- <div class="clock-hand hour"></div> -->
+			<div class="clock-hand minute-hand"></div>
+			<div class="clock-hand seconds-hand"></div>
 		</div>
 		<script>
 			// Add your JavaScript code here
-			let hand = document.querySelector('.clock-hand');
-			setInterval(1, function() {
-				hand.style('transform: rotate(2deg)');
-			});
+			let minute_hand = document.querySelector('.minute-hand');
+			let seconds_hand = document.querySelector('.seconds-hand');
+			// console.log(hand.style.setProperty('transform', 'rotate(50deg'));
+			let time = 20;
+			let hour = 1000 * 60 * 60;
+			let minute = 1000 * 60;
+			let sec = 1000;
+			console.log(time);
+			setInterval(
+				function() {
+					console.log('move hand clock');
+					time = time + 20;
+					console.log(time);
+					minute_hand.style.setProperty('transform', `rotate(${time}deg)`);
+					//hand.style('transform: rotate(5deg)');
+				},
+				minute,
+				time
+			);
+			setInterval(
+				function() {
+					console.log('move hand clock');
+					time = time + 10;
+					console.log(time);
+					seconds_hand.style.setProperty('transform', `rotate(${time}deg)`);
+					//hand.style('transform: rotate(5deg)');
+				},
+				sec,
+				time
+			);
 		</script>
 	</body>
 </html>
