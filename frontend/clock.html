@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Hand Clock</title>
+		<style>
+			/* Add your CSS here */
+
+			.clock-container {
+				width: 400px;
+				height: 400px;
+				border: 1px solid black;
+				border-radius: 50%;
+			}
+			.clock-hand {
+				width: 15px;
+				height: 250px;
+				left: 200px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<!--Add your layout here-->
+		<div class="clock-container">
+			<div class="clock-hand hour"></div>
+			<div class="clock-hand minute"></div>
+			<div class="clock-hand second"></div>
+		</div>
+		<script>
+			// Add your JavaScript code here
+			let hand = document.querySelector('.clock-hand');
+			setInterval(1, function() {
+				hand.style('transform: rotate(2deg)');
+			});
+		</script>
+	</body>
+</html>
