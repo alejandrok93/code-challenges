@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Calculator</title>
+		<style>
+			/* --------------------
+     Add your styling here
+     -------------------- */
+			.calculator {
+				width: 400px;
+				border: 1px solid black;
+			}
+
+			.display {
+				width: 100%;
+				height: 50px;
+				background-color: lightgray;
+			}
+
+			.pad-container {
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+
+				border: 1px solid red;
+			}
+
+			.number-pad {
+				display: flex;
+				flex-direction: row;
+				width: 80%;
+				flex-wrap: wrap;
+
+				border: 1px solid black;
+			}
+
+			.operators-pad {
+				width: 15%;
+				margin: 10px;
+				border: 1px solid green;
+			}
+
+			.number {
+				width: 80px;
+				height: 60px;
+				background-color: gray;
+				color: white;
+			}
+
+			.zero {
+				width: 80px;
+			}
+
+			.operator {
+				width: 80px;
+				height: 40px;
+				background-color: orange;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="calculator">
+			<!----------------------
+    Add your markup here
+    ------------------------>
+			<div class="calculator">
+				<div class="display"></div>
+				<div class="pad-container">
+					<div class="number-pad">
+						<button onclick="calculate" class="number">7</button>
+						<button onclick="calculate" class="number">8</button>
+						<button onclick="calculate" class="number">9</button>
+						<button onclick="calculate" class="number">4</button>
+						<button onclick="calculate" class="number">5</button>
+						<button onclick="calculate" class="number">6</button>
+						<button onclick="calculate" class="number">1</button>
+						<button onclick="calculate" class="number">2</button>
+						<button onclick="calculate" class="number">3</button>
+						<button onclick="calculate" class="number zero">0</button>
+					</div>
+					<div class="operators-pad">
+						<button class="operator">/</button>
+						<button class="operator">*</button>
+						<button class="operator">+</button>
+						<button class="operator">=</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			/* --------------------
+     Add your code here
+    --------------------- */
+			let currentNumber;
+
+			function calculate(event) {
+				//store number clicked
+
+				currentNumber = event.target.value;
+				console.log(event.target);
+
+				//display
+				display = querySelector('.display');
+				display.setInnerHTML(currentNumber);
+			}
+
+			function handleOperation(event) {
+				let operator = event.target.value;
+				let display = querySelector('.display');
+				let num1 = display.innerHTML;
+				let calc;
+				if (operator === '+') {
+					display.setInnerHTML();
+				}
+			}
+		</script>
+	</body>
+</html>

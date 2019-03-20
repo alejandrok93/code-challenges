@@ -13,13 +13,17 @@
 				border-radius: 50%;
 			}
 			.clock-hand {
-				width: 15px;
+				width: 25px;
 				height: 200px;
 				position: absolute;
 				top: 25px;
 				left: 200px;
 				border: 1px solid black;
 				transform: rotate(0deg);
+			}
+
+			.minute-hand {
+				width: 15px;
 			}
 
 			.seconds-hand {
@@ -30,7 +34,7 @@
 	<body>
 		<!--Add your layout here-->
 		<div class="clock-container">
-			<!-- <div class="clock-hand hour"></div> -->
+			<div class="clock-hand hour-hand"></div>
 			<div class="clock-hand minute-hand"></div>
 			<div class="clock-hand seconds-hand"></div>
 		</div>
@@ -41,7 +45,7 @@
 			// console.log(hand.style.setProperty('transform', 'rotate(50deg'));
 			let time = 20;
 			let hour = 1000 * 60 * 60;
-			let minute = 1000 * 60;
+			let min = 1000 * 60;
 			let sec = 1000;
 			console.log(time);
 			setInterval(
@@ -52,7 +56,7 @@
 					minute_hand.style.setProperty('transform', `rotate(${time}deg)`);
 					//hand.style('transform: rotate(5deg)');
 				},
-				minute,
+				min,
 				time
 			);
 			setInterval(
