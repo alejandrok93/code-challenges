@@ -47,21 +47,30 @@ class Board extends React.Component {
 			]
 		};
 	}
-
-	deleteCard = card_id => {
-		console.log('lets delete this card');
-		console.log(card_id);
-	};
-	componentDidMount() {}
-	addCard = e => {
-		let column_id = parseInt(e.target.value);
-		let current_column = this.state.columns.filter(column => {
-			console.log(column.id);
-			console.log(column_id);
+	findColumn = column_id => {
+		let column = this.state.columns.filter(column => {
 			if (column.id === column_id) {
 				return column;
 			}
 		})[0];
+
+		return column;
+	};
+
+	deleteCard = (column_id, card_id) => {
+		let current_column = this.findColumn(column_id);
+		card_id = parseInt(card_id);
+		current_column.cards = current_column.cards.filter(
+			card => card.id !== card_id
+		);
+
+		this.setState({ ...this.state.columns, current_column });
+	};
+
+	componentDidMount() {}
+	addCard = e => {
+		let column_id = parseInt(e.target.value);
+		let current_column = this.findColumn(column_id);
 
 		console.log(current_column);
 
