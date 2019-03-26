@@ -82,14 +82,13 @@ class Board extends React.Component {
 		//Add to cards array for this column
 		this.state.columns.forEach(column => {
 			if (column.id === current_column.id) {
-				column.cards.push(new_card);
+				//column.cards.push(new_card);
+				current_column.cards.push(new_card);
 			}
 		});
 
-		let new_columns = this.state.columns;
-
-		console.log(new_columns);
-		this.setState({ columns: new_columns });
+		//Save state
+		this.setState({ ...this.state.columns, current_column });
 	};
 
 	render() {
