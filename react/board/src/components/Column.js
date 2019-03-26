@@ -16,7 +16,7 @@ class Column extends React.Component {
 					{this.props.column.name}
 				</h2>
 				{this.props.column.cards.map(card => (
-					<Card key={card.id} card={card} />
+					<Card key={card.id} card={card} deleteCard={this.props.deleteCard} />
 				))}
 				<button
 					value={this.props.column.id}

@@ -47,6 +47,11 @@ class Board extends React.Component {
 			]
 		};
 	}
+
+	deleteCard = card_id => {
+		console.log('lets delete this card');
+		console.log(card_id);
+	};
 	componentDidMount() {}
 	addCard = e => {
 		let column_id = parseInt(e.target.value);
@@ -82,7 +87,12 @@ class Board extends React.Component {
 		return (
 			<div className="board-container">
 				{this.state.columns.map((column, index) => (
-					<Column key={column.id} column={column} addCard={this.addCard} />
+					<Column
+						key={column.id}
+						column={column}
+						addCard={this.addCard}
+						deleteCard={this.deleteCard}
+					/>
 				))}
 			</div>
 		);
