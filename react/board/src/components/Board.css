@@ -1,0 +1,30 @@
+.board-container {
+	margin: 0 auto;
+	background-color: #eceeee;
+
+	display: flex;
+	flex-direction: row;
+	/* justify-content: space-evenly; */
+}
+
+.column-container {
+	width: 23%;
+	margin: 0 12.5px;
+}
+
+.column-name {
+	height: 30px;
+
+	margin: 0 auto;
+	color: white;
+	font-size: 14px;
+	text-align: center;
+}
+
+.column-container:first-child {
+	margin-left: 25px;
+}
+
+.column-container:last-child {
+	margin-right: 25px;
+}
