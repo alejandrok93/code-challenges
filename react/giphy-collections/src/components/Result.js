@@ -7,10 +7,10 @@ const itemSource = {
 		return props.item;
 	},
 	endDrag(props, monitor, components) {
-		console.log(monitor.didDrop());
 		if (!monitor.didDrop()) {
 			return;
 		}
+
 		return props.handleDrop(props.item.id);
 	}
 };
