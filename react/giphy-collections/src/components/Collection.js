@@ -19,7 +19,7 @@ class Collection extends React.Component {
 				<p>{this.props.name}</p>
 				<ul>
 					{items.map(item => (
-						<li>{item.name}</li>
+						<li key={item.id}>{item.name}</li>
 					))}
 				</ul>
 			</div>

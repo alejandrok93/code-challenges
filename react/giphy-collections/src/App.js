@@ -24,13 +24,12 @@ class App extends Component {
 
 	addItem = id => {
 		console.log('add item: ' + id);
-
-		let collection = this.state.collections[0];
+		let collections = [...this.state.collections];
+		let collection = collections[0];
 		let item = this.state.items.find(item => item.id === id);
 		collection.items.push(item);
-		console.log(collection);
 
-		this.setState({ ...this.state.collections[0], collection });
+		this.setState({ collections });
 		// this.setState(prevState => {
 		// 	let items = prevState.items;
 		// 	const item = items.find(item => item.id === id);
@@ -43,6 +42,7 @@ class App extends Component {
 	};
 	render() {
 		console.log(this.state);
+		const { name, items } = this.state.collections[0];
 		return (
 			<div className="container">
 				<header className="header">
@@ -50,7 +50,7 @@ class App extends Component {
 				</header>
 				<div className="app">
 					<section className="collections-container">
-						{<Collection name={this.state.collections[0].name} />}
+						{<Collection name={name} items={items} />}
 					</section>
 					<section className="giphy-app">
 						<div className="search-container">{/* <Search /> */}</div>
