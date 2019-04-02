@@ -7,6 +7,10 @@ const itemSource = {
 		return props.item;
 	},
 	endDrag(props, monitor, components) {
+		console.log(monitor.didDrop());
+		if (!monitor.didDrop()) {
+			return;
+		}
 		return props.handleDrop(props.item.id);
 	}
 };
@@ -25,7 +29,7 @@ class Result extends React.Component {
 		const opacity = isDragging ? 0 : 1;
 		return connectDragSource(
 			<div className="item" style={{ opacity }}>
-				<span>item.name</span>
+				<span>{item.name}</span>
 			</div>
 		);
 
