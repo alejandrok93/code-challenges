@@ -82,6 +82,9 @@ class App extends Component {
 						{this.state.collections.map(collection => (
 							<Collection collection={collection} />
 						))}
+						<div onClick={this.addCollection} className="new-collection">
+							<p>+ Add another collection</p>
+						</div>
 					</section>
 					<section className="giphy-app">
 						<div className="search-container">

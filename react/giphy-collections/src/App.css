@@ -51,6 +51,18 @@
 	padding: 5px;
 }
 
+.new-collection {
+	display: flex;
+	justify-content: flex-start;
+	color: hsla(0, 14%, 85%, 0.8);
+	cursor: pointer;
+}
+
+.new-collection p {
+	color: lightslategray;
+	margin: 15px 5px 5px 10px;
+}
+
 .giphy-app {
 	width: 80%;
 	border: 1px solid gray;
