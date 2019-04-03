@@ -21,15 +21,16 @@ class Collection extends React.Component {
 		const items = this.props.collection.items || [];
 		const name = this.props.collection.name;
 		const backGroundColor = hovered ? 'lightcyan' : 'white';
-
+		const number_of_items = items.length;
 		return connectDropTarget(
 			<div className="collection" style={{ background: backGroundColor }}>
-				<p>{name}</p>
-				<ul>
+				<p className="collection-name">{name}</p>{' '}
+				<span className="number-of-items">{number_of_items}</span>
+				{/* <ul>
 					{items.map(item => (
 						<li key={item.id}>{item.title}</li>
 					))}
-				</ul>
+				</ul> */}
 			</div>
 		);
 		// return <div className="collection">Giphy Collection</div>;
