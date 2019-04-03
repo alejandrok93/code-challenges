@@ -7,6 +7,7 @@ import './App.css';
 //Import components
 import Result from './components/Result';
 import Collection from './components/Collection';
+import Search from './components/Search';
 class App extends Component {
 	constructor() {
 		super();
@@ -41,7 +42,6 @@ class App extends Component {
 		// });
 	};
 	render() {
-		console.log(this.state);
 		const { name, items } = this.state.collections[0];
 		return (
 			<div className="container">
@@ -53,7 +53,9 @@ class App extends Component {
 						{<Collection name={name} items={items} />}
 					</section>
 					<section className="giphy-app">
-						<div className="search-container">{/* <Search /> */}</div>
+						<div className="search-container">
+							<Search />
+						</div>
 						<div className="giphy-container">
 							{this.state.items.map(item => (
 								<Result
