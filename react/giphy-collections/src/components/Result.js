@@ -11,7 +11,7 @@ const itemSource = {
 			return;
 		}
 
-		return props.handleDrop(props.item.id);
+		return props.handleDrop(props.item);
 	}
 };
 
@@ -31,7 +31,6 @@ class Result extends React.Component {
 
 		if (item.images) {
 			img_url = item.images.fixed_height.url;
-			console.log(item.images.fixed_height.url);
 		}
 
 		return connectDragSource(

@@ -29,11 +29,11 @@ class App extends Component {
 		};
 	}
 
-	addItem = id => {
-		console.log('add item: ' + id);
+	addItem = item => {
+		console.log('add item: ' + item.id);
 		let collections = [...this.state.collections];
 		let collection = collections[0];
-		let item = this.state.items.find(item => item.id === id);
+		//let item = this.state.items.find(item => item.id === id);
 		collection.items.push(item);
 
 		this.setState({ collections });
@@ -80,7 +80,7 @@ class App extends Component {
 								<Result
 									key={item.id}
 									item={item}
-									handleDrop={id => this.addItem(id)}
+									handleDrop={item => this.addItem(item)}
 								/>
 							))}
 						</div>
