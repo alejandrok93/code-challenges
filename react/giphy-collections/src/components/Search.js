@@ -12,6 +12,8 @@ class Search extends React.Component {
 	};
 
 	onSubmit = e => {
+		// ----- INPUT IS NOT GETTING RESET -----
+
 		//prevent default
 		e.preventDefault();
 

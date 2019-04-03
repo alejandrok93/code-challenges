@@ -12,7 +12,6 @@ import Search from './components/Search';
 
 //Set up API url, ----- need to remove API key and put in .env file -----
 const api_key = 'Q0JJDtmMpduHC2isiGcPvMb2vRR3tWZf';
-let giphy_search_url = `http://api.giphy.com/v1/gifs/search?api_key=${api_key}&q=`;
 
 class App extends Component {
 	constructor() {
@@ -25,21 +24,32 @@ class App extends Component {
 				{ id: 4, name: 'Item 4' },
 				{ id: 5, name: 'Item 5' }
 			],
-			collections: [{ name: 'Giphy Collections', items: [] }]
+			collections: [
+				{ id: 0, name: 'Giphy Collections', items: [] },
+				{ id: 1, name: 'Fun', items: [] }
+			]
 		};
 	}
 
-	addItem = item => {
-		console.log('add item: ' + item.id);
+	addItem = (item, collection_id) => {
+		//Copy previous state collections to new array
 		let collections = [...this.state.collections];
-		let collection = collections[0];
-		//let item = this.state.items.find(item => item.id === id);
+
+		//Access target collection using collection id
+		let collection = collections.find(
+			collection => collection.id === collection_id
+		);
+
+		//Add item to collection
 		collection.items.push(item);
 
+		//Update state
 		this.setState({ collections });
 	};
 
 	handleSearch = input => {
+		//Declare GIPHY Search URL
+		let giphy_search_url = `http://api.giphy.com/v1/gifs/search?api_key=${api_key}&q=`;
 		//make API call to GIPHY API with input
 		//http://api.giphy.com/v1/gifs/search?api_key=Q0JJDtmMpduHC2isiGcPvMb2vRR3tWZf&q=cheeseburger
 
@@ -61,7 +71,7 @@ class App extends Component {
 	};
 	render() {
 		console.log(this.state);
-		const { name, items } = this.state.collections[0];
+		const { name, items, id } = this.state.collections[0];
 		return (
 			<div className="container">
 				<header className="header">
@@ -69,7 +79,9 @@ class App extends Component {
 				</header>
 				<div className="app">
 					<section className="collections-container">
-						{<Collection name={name} items={items} />}
+						{this.state.collections.map(collection => (
+							<Collection collection={collection} />
+						))}
 					</section>
 					<section className="giphy-app">
 						<div className="search-container">
@@ -80,7 +92,9 @@ class App extends Component {
 								<Result
 									key={item.id}
 									item={item}
-									handleDrop={item => this.addItem(item)}
+									handleDrop={(item, collection_id) =>
+										this.addItem(item, collection_id)
+									}
 								/>
 							))}
 						</div>

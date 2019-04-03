@@ -10,8 +10,13 @@ const itemSource = {
 		if (!monitor.didDrop()) {
 			return;
 		}
-
-		return props.handleDrop(props.item);
+		// Get drop target component
+		const result = monitor.getDropResult();
+		let collection_id;
+		if (result) {
+			collection_id = result.component.props.collection.id;
+		}
+		return props.handleDrop(props.item, collection_id);
 	}
 };
 
