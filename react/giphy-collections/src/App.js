@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
+import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 
@@ -8,6 +9,11 @@ import './App.css';
 import Result from './components/Result';
 import Collection from './components/Collection';
 import Search from './components/Search';
+
+//Set up API url, ----- need to remove API key and put in .env file -----
+const api_key = 'Q0JJDtmMpduHC2isiGcPvMb2vRR3tWZf';
+let giphy_search_url = `http://api.giphy.com/v1/gifs/search?api_key=${api_key}&q=`;
+
 class App extends Component {
 	constructor() {
 		super();
@@ -31,17 +37,30 @@ class App extends Component {
 		collection.items.push(item);
 
 		this.setState({ collections });
-		// this.setState(prevState => {
-		// 	let items = prevState.items;
-		// 	const item = items.find(item => item.id === id);
+	};
 
-		// 	let collection = prevState.collections[0];
-		// 	collection.items.push(item);
+	handleSearch = input => {
+		//make API call to GIPHY API with input
+		//http://api.giphy.com/v1/gifs/search?api_key=Q0JJDtmMpduHC2isiGcPvMb2vRR3tWZf&q=cheeseburger
 
-		// 	return { ...prevState, collection };
-		// });
+		if (input.length > 0) {
+			//Format search query
+			input = input.replace(/ /g, '+');
+			giphy_search_url = giphy_search_url + input;
+			console.log(giphy_search_url);
+
+			axios
+				.get(giphy_search_url)
+				.then(response => {
+					const data = response.data.data;
+					this.setState({ ...this.state, items: data });
+				})
+				.catch(err => console.log(err));
+		}
+		//update state with GIF results
 	};
 	render() {
+		console.log(this.state);
 		const { name, items } = this.state.collections[0];
 		return (
 			<div className="container">
@@ -54,7 +73,7 @@ class App extends Component {
 					</section>
 					<section className="giphy-app">
 						<div className="search-container">
-							<Search />
+							<Search handleSearch={this.handleSearch} />
 						</div>
 						<div className="giphy-container">
 							{this.state.items.map(item => (

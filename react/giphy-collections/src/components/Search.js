@@ -8,19 +8,31 @@ class Search extends React.Component {
 
 	handleChange = e => {
 		let input = e.target.value;
-		console.log(input);
 		this.setState({ ...this.state, input });
+	};
+
+	onSubmit = e => {
+		//prevent default
+		e.preventDefault();
+
+		//Call handle search function
+		this.props.handleSearch(this.state.input);
+
+		//Clear search box
+		this.setState({ input: '' });
 	};
 	render() {
 		const { input } = this.state;
 		return (
 			<div className="search">
-				<input
-					type="text"
-					value={this.state.input}
-					onChange={e => this.handleChange(e)}
-				/>
-				<button onSubmit={e => this.props.handleSearch(input)}>Search</button>
+				<form onSubmit={e => this.onSubmit(e)}>
+					<input
+						type="text"
+						value={this.state.input}
+						onChange={e => this.handleChange(e)}
+					/>
+					<button>Search</button>
+				</form>
 			</div>
 		);
 	}

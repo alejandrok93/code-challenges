@@ -51,8 +51,7 @@
 }
 
 .giphy-container .item {
-	width: 55px;
-	height: 55px;
+	min-width: 185px;
+	min-height: 70px;
 	margin: 20px;
-	border: 1px solid seagreen;
 }

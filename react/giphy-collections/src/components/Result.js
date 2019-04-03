@@ -26,14 +26,19 @@ function collect(connect, monitor) {
 class Result extends React.Component {
 	render() {
 		const { isDragging, connectDragSource, item } = this.props;
+		let img_url = '';
 		const opacity = isDragging ? 0 : 1;
+
+		if (item.images) {
+			img_url = item.images.fixed_height.url;
+			console.log(item.images.fixed_height.url);
+		}
+
 		return connectDragSource(
 			<div className="item" style={{ opacity }}>
-				<span>{item.name}</span>
+				<img src={img_url} alt={item.title} />
 			</div>
 		);
-
-		// return <div className="item">{this.props.item.name}</div>;
 	}
 }
 
