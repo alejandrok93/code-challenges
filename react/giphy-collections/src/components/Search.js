@@ -24,7 +24,6 @@ class Search extends React.Component {
 		this.setState({ input: '' });
 	};
 	render() {
-		const { input } = this.state;
 		return (
 			<div className="search">
 				<form onSubmit={e => this.onSubmit(e)}>

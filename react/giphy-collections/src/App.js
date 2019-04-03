@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
+import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
@@ -9,6 +10,7 @@ import './App.css';
 import Result from './components/Result';
 import Collection from './components/Collection';
 import Search from './components/Search';
+import GiphyContainer from './components/GiphyContainer';
 
 //Set up API url, ----- need to remove API key and put in .env file -----
 const api_key = 'Q0JJDtmMpduHC2isiGcPvMb2vRR3tWZf';
@@ -70,8 +72,6 @@ class App extends Component {
 		//update state with GIF results
 	};
 	render() {
-		console.log(this.state);
-		const { name, items, id } = this.state.collections[0];
 		return (
 			<div className="container">
 				<header className="header">
@@ -87,17 +87,18 @@ class App extends Component {
 						<div className="search-container">
 							<Search handleSearch={this.handleSearch} />
 						</div>
-						<div className="giphy-container">
-							{this.state.items.map(item => (
-								<Result
-									key={item.id}
-									item={item}
-									handleDrop={(item, collection_id) =>
-										this.addItem(item, collection_id)
-									}
+
+						{/* Routes */}
+						<Route
+							exact
+							path="/"
+							component={() => (
+								<GiphyContainer
+									items={this.state.items}
+									addItem={this.addItem}
 								/>
-							))}
-						</div>
+							)}
+						/>
 					</section>
 				</div>
 			</div>
