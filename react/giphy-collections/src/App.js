@@ -11,6 +11,7 @@ import Result from './components/Result';
 import Collection from './components/Collection';
 import Search from './components/Search';
 import GiphyContainer from './components/GiphyContainer';
+import CollectionContainer from './components/CollectionContainer';
 
 //Set up API url, ----- need to remove API key and put in .env file -----
 const api_key = 'Q0JJDtmMpduHC2isiGcPvMb2vRR3tWZf';
@@ -71,6 +72,11 @@ class App extends Component {
 		}
 		//update state with GIF results
 	};
+
+	displayPopUp = e => {
+		alert('hi');
+		console.log(e.target);
+	};
 	render() {
 		return (
 			<div className="container">
@@ -80,11 +86,15 @@ class App extends Component {
 				<div className="app">
 					<section className="collections-container">
 						{this.state.collections.map(collection => (
-							<Collection collection={collection} />
+							<Collection
+								onClick={e => this.displayPopUp(e)}
+								collection={collection}
+							/>
 						))}
 						<div onClick={this.addCollection} className="new-collection">
 							<p>+ Add another collection</p>
 						</div>
+						{/* <CollectionContainer items={this.state.collections[0].items} /> */}
 					</section>
 					<section className="giphy-app">
 						<div className="search-container">
