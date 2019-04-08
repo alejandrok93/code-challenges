@@ -26,7 +26,15 @@ function bfsGetPath(graph, startNode, endNode) {
 
 	//Check that nodes are in graph
 	if (graph[startNode] === undefined || graph[endNode] === undefined) {
-		return null;
+		throw 'Node not present';
+	}
+
+	if (graph[endNode] === undefined) {
+		return 'end node not present';
+	}
+	//Check that startNode and endNode are not the same
+	if (startNode === endNode) {
+		return [endNode];
 	}
 
 	//Enqueue starting node
@@ -84,66 +92,65 @@ const graph = {
 
 let desc = 'two hop path 1';
 let actual = bfsGetPath(graph, 'a', 'e');
-console.log(actual);
 
-// let expected = ['a', 'c', 'e'];
-// assertDeepEqual(actual, expected, desc);
+let expected = ['a', 'c', 'e'];
+assertDeepEqual(actual, expected, desc);
 
-// desc = 'two hop path 2';
-// actual = bfsGetPath(graph, 'd', 'c');
-// expected = ['d', 'a', 'c'];
-// assertDeepEqual(actual, expected, desc);
+desc = 'two hop path 2';
+actual = bfsGetPath(graph, 'd', 'c');
+expected = ['d', 'a', 'c'];
+assertDeepEqual(actual, expected, desc);
 
-// desc = 'one hop path 1';
-// actual = bfsGetPath(graph, 'a', 'c');
-// expected = ['a', 'c'];
-// assertDeepEqual(actual, expected, desc);
+desc = 'one hop path 1';
+actual = bfsGetPath(graph, 'a', 'c');
+expected = ['a', 'c'];
+assertDeepEqual(actual, expected, desc);
 
-// desc = 'one hop path 2';
-// actual = bfsGetPath(graph, 'f', 'g');
-// expected = ['f', 'g'];
-// assertDeepEqual(actual, expected, desc);
+desc = 'one hop path 2';
+actual = bfsGetPath(graph, 'f', 'g');
+expected = ['f', 'g'];
+assertDeepEqual(actual, expected, desc);
 
-// desc = 'one hop path 3';
-// actual = bfsGetPath(graph, 'g', 'f');
-// expected = ['g', 'f'];
-// assertDeepEqual(actual, expected, desc);
+desc = 'one hop path 3';
+actual = bfsGetPath(graph, 'g', 'f');
+expected = ['g', 'f'];
+assertDeepEqual(actual, expected, desc);
 
-// desc = 'zero hop path';
-// actual = bfsGetPath(graph, 'a', 'a');
-// expected = ['a'];
-// assertDeepEqual(actual, expected, desc);
+desc = 'zero hop path';
+actual = bfsGetPath(graph, 'a', 'a');
+expected = ['a'];
+assertDeepEqual(actual, expected, desc);
 
-// desc = 'no path';
-// actual = bfsGetPath(graph, 'a', 'f');
-// expected = null;
-// assertDeepEqual(actual, expected, desc);
+desc = 'no path';
+actual = bfsGetPath(graph, 'a', 'f');
+expected = null;
+assertDeepEqual(actual, expected, desc);
 
-// desc = 'start node not present';
-// assertThrowsError(() => {
-//   bfsGetPath(graph, 'h', 'a');
-// }, desc);
+desc = 'start node not present';
+assertThrowsError(() => {
+	bfsGetPath(graph, 'h', 'a');
+}, desc);
 
-// desc = 'end node not present';
-// assertThrowsError(() => {
-//   bfsGetPath(graph, 'a', 'h');
-// }, desc);
+desc = 'end node not present';
+assertThrowsError(() => {
+	bfsGetPath(graph, 'a', 'h');
+}, desc);
 
-// function assertDeepEqual(a, b, desc) {
-//   const aStr = JSON.stringify(a);
-//   const bStr = JSON.stringify(b);
-//   if (aStr !== bStr) {
-//     console.log(`${desc} ... FAIL: ${aStr} != ${bStr}`);
-//   } else {
-//     console.log(`${desc} ... PASS`);
-//   }
-// }
+function assertDeepEqual(a, b, desc) {
+	const aStr = JSON.stringify(a);
+	const bStr = JSON.stringify(b);
+	if (aStr !== bStr) {
+		console.log(`${desc} ... FAIL: ${aStr} != ${bStr}`);
+	} else {
+		console.log(`${desc} ... PASS`);
+	}
+}
 
-// function assertThrowsError(func, desc) {
-//   try {
-//     func();
-//     console.log(`${desc} ... FAIL`);
-//   } catch (e) {
-//     console.log(`${desc} ... PASS`);
-//   }
-// }
+function assertThrowsError(func, desc) {
+	try {
+		func();
+		console.log(`${desc} ... FAIL`);
+	} catch (e) {
+		console.log(`${desc} ... PASS`);
+	}
+}
