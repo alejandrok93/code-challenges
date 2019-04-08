@@ -16,8 +16,6 @@ class Queue {
 }
 
 function bfsGetPath(graph, startNode, endNode) {
-	console.log('start node: ' + startNode);
-	console.log('end node: ', endNode);
 	// Find the shortest route in the network between the two users -
 
 	//Define data structures to get shortest path
@@ -25,6 +23,11 @@ function bfsGetPath(graph, startNode, endNode) {
 	let visited = new Set();
 	let map = {};
 	let shortest_path = [];
+
+	//Check that nodes are in graph
+	if (graph[startNode] === undefined || graph[endNode] === undefined) {
+		return null;
+	}
 
 	//Enqueue starting node
 	q.enqueue([startNode]);
@@ -34,7 +37,6 @@ function bfsGetPath(graph, startNode, endNode) {
 		let current_path = q.dequeue();
 		let index = current_path.length - 1;
 		let current_node = current_path[index];
-		console.log('current node: ' + current_node);
 
 		if (!visited.has(current_node)) {
 			//Add it to list of visited nodes
@@ -44,7 +46,7 @@ function bfsGetPath(graph, startNode, endNode) {
 			if (connected_nodes) {
 				for (let i = 0; i < connected_nodes.length; i++) {
 					let node = connected_nodes[i];
-					console.log('---> connected node: ' + node);
+
 					//Copy last node's path to keep track of path
 					let tmp_path = [...current_path];
 
@@ -57,8 +59,6 @@ function bfsGetPath(graph, startNode, endNode) {
 
 					//Check if node is endNode, then return
 					if (node === endNode) {
-						console.log('found it!');
-						console.log(map[node]);
 						shortest_path = map[node];
 						//return;
 						return shortest_path;
@@ -84,7 +84,7 @@ const graph = {
 
 let desc = 'two hop path 1';
 let actual = bfsGetPath(graph, 'a', 'e');
-//console.log(actual);
+console.log(actual);
 
 // let expected = ['a', 'c', 'e'];
 // assertDeepEqual(actual, expected, desc);
