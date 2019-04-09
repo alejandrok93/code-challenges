@@ -1,14 +1,17 @@
 import React from 'react';
 
-const debounce = (func, delay) => {
+function debounce(func, delay) {
 	let timeout;
-	let context = this,
-		args = arguments;
+	let context = this;
+	let args = arguments;
+
+	console.log('lets wait to execute search ' + delay + 'ms');
+
 	return () => {
 		clearInterval();
 		timeout = setTimeout(func.apply(context, args), delay);
 	};
-};
+}
 
 class Search extends React.Component {
 	constructor() {
@@ -18,6 +21,14 @@ class Search extends React.Component {
 
 	handleChange = e => {
 		let input = e.target.value;
+
+		let callback = () => {
+			return debounce(
+				this.props.handleSearch.bind(this, this.state.input),
+				500
+			);
+		};
+
 		this.setState({ ...this.state, input });
 	};
 
@@ -28,7 +39,8 @@ class Search extends React.Component {
 		e.preventDefault();
 
 		//Call handle search function
-		this.props.handleSearch(this.state.input);
+		// this.props.handleSearch(this.state.input);
+		debounce(this.props.handleSearch.bind(this, this.state.input), 500);
 
 		//Clear search box
 		this.setState({ input: '' });
