@@ -1,5 +1,15 @@
 import React from 'react';
 
+const debounce = (func, delay) => {
+	let timeout;
+	let context = this,
+		args = arguments;
+	return () => {
+		clearInterval();
+		timeout = setTimeout(func.apply(context, args), delay);
+	};
+};
+
 class Search extends React.Component {
 	constructor() {
 		super();
