@@ -73,9 +73,20 @@ class App extends Component {
 		//update state with GIF results
 	};
 
-	displayPopUp = e => {
-		alert('hi');
-		console.log(e.target);
+	addCollection = () => {
+		const result = window.prompt('New collection name:');
+
+		if (result !== null) {
+			let collections = [...this.state.collections];
+			let new_collection = {
+				id: this.state.collections.length,
+				name: result,
+				items: []
+			};
+
+			collections.push(new_collection);
+			this.setState({ collections });
+		}
 	};
 	render() {
 		return (
