@@ -1,68 +1,83 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SoFi Front-end Challenge
 
-## Available Scripts
+## Intro
+
+Welcome! This challenge is designed to give us a better idea of how you
+contribute to the front-end of a web product. We will be evaluating your work
+based on attention to detail, craftsmanship of the UI, understanding of React,
+and product mindset.
+
+## The Challenge
+
+At SoFi, we've decided to build some internal tools to empower our internal
+operators. We've found that our operators work more effectively (close more
+loans, handle more customer service requests, etc) when they share GIF
+collections with each other.
+
+Our task is to build an internal app for sharing GIF collections! It's kind of
+like... Pinterest for GIFs!
+
+Complete the [**Basic Requirements**](#basic-requirements), which make up the
+MVP we will be showing operators to manage their GIF collections. This work will
+allow for operators to search for GIFs and drag them into a collection.
+
+A basic project setup is provided to get you started, and many things are
+intentionally incomplete. When you're done, check out the
+[submission guidelines](#submitting).
+
+Best of luck!
+
+# Basic Requirements
+
+- Enable search against the [Giphy API](https://developers.giphy.com/docs/)
+  - Use their public beta key
+  - Efficiently make search requests as the user types in the search input
+  - Populate an area on the page with results
+  - Demonstrate ability to make full use of the API
+- Enable dropping a search result onto the drop area to add it to a collection
+  - Note: Basic drag'n'drop is already set up with
+    [react-dnd](http://react-dnd.github.io/react-dnd/docs/overview)
+- Implement styling and the search drag-and-drop layout
+- Demonstrate product mindset
+  - leave comments and/or add add a write-up to clarify why you did what you did
+
+---
+
+### This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 In the project directory, you can run:
 
-### `npm start`
+### `yarn start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in the development mode. Open
+[http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+The page will reload if you make edits. You will also see any lint errors in the
+console.
 
-### `npm test`
+### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Launches the test runner in the interactive watch mode. See the section about
+[running tests](https://facebook.github.io/create-react-app/docs/running-tests)
+for more information.
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You can learn more in the
+[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Submitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+When you are satisfied with your work, follow these instructions to submit:
 
-### Analyzing the Bundle Size
+1. `git format-patch master --stdout > your-name.patch`. Or, if you worked
+   straight off of master, use the commit sha preceding your work in place of
+   `master`.
+2. Email the patch to your contact at SoFi.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Feedback
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+We're always looking for ways to improve our processes at SoFi so let us know if
+anything is especially frustrating (or fun)!
