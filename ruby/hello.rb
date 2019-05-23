@@ -5,7 +5,7 @@ end
 
 
 def counter
-  for counter in 1..5
+  for counter in 1..50
     puts "Hello #{counter}"
   end
 end
